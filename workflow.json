@@ -1,0 +1,351 @@
+{
+  "id": "tpl-3692779948",
+  "name": "Case Review Prioritizer with Claim Gateway",
+  "description": "Case Review Prioritizer with Claim Gateway simulates demographics and reconciles demographics snapshots; applies decision gates and observability; orchestrates via RIS to improve throughput.",
+  "industry": "Healthcare & Life Sciences",
+  "pattern": "Auto-Retrieval",
+  "complexity": "Intermediate",
+  "rating": 4.3,
+  "downloads": 30874,
+  "favorites": 1452,
+  "executionTime": "8 min",
+  "tags": [
+    "safety",
+    "quality",
+    "care",
+    "auto-retrieval",
+    "healthcare"
+  ],
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Signal Intake",
+      "description": "Collect, validate and normalize encounter summaries from EHR; attach a runId and timestamp for traceability."
+    },
+    {
+      "id": "discover-0",
+      "name": "Discover",
+      "description": "Execute discover phase for the Auto-Retrieval pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "retrieve-1",
+      "name": "Retrieve",
+      "description": "Execute retrieve phase for the Auto-Retrieval pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "plan-drafting-0",
+      "name": "Plan Drafting",
+      "description": "Plan Drafting across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "documentation-1",
+      "name": "Documentation",
+      "description": "Documentation across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "optimization-2",
+      "name": "Optimization",
+      "description": "Optimization across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "intervention-3",
+      "name": "Intervention",
+      "description": "Intervention across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "finalize",
+      "name": "Orchestration",
+      "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to EHR; return response JSON for the client."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "Signal Intake",
+        "description": "Collect, validate and normalize encounter summaries from EHR; attach a runId and timestamp for traceability.",
+        "nodeType": "input",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "discover-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Discover",
+        "description": "Execute discover phase for the Auto-Retrieval pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "retrieve-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Retrieve",
+        "description": "Execute retrieve phase for the Auto-Retrieval pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "plan-drafting-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Plan Drafting",
+        "description": "Plan Drafting across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "documentation-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Documentation",
+        "description": "Documentation across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "optimization-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "Optimization",
+        "description": "Optimization across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    },
+    {
+      "id": "intervention-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "Intervention",
+        "description": "Intervention across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1560,
+        "y": 120
+      }
+    },
+    {
+      "id": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "Orchestration",
+        "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to EHR; return response JSON for the client.",
+        "nodeType": "output",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1810,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "intake",
+      "target": "discover-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-1",
+      "source": "discover-0",
+      "target": "retrieve-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-2",
+      "source": "retrieve-1",
+      "target": "plan-drafting-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-3",
+      "source": "plan-drafting-0",
+      "target": "documentation-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-4",
+      "source": "documentation-1",
+      "target": "optimization-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-5",
+      "source": "optimization-2",
+      "target": "intervention-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-6",
+      "source": "intervention-3",
+      "target": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    }
+  ],
+  "preview": "Signal Intake → Discover → Retrieve → Plan Drafting → Documentation → Optimization → Intervention → Orchestration",
+  "featured": true,
+  "createdAt": "2025-08-27T18:07:07.040Z",
+  "author": "AgentBridge Team",
+  "deployments": 3099,
+  "lastDeployed": "2026-01-28T15:16:15.980Z",
+  "configuration": {
+    "provider": "nvidia",
+    "region": "us-west-2",
+    "compute": "cpu-optimized"
+  },
+  "healthStatus": "degraded",
+  "deploymentCount": 1556,
+  "githubRepo": "https://github.com/agentbridge/case-review-prioritizer-with-claim-gateway",
+  "maintainer": "AgentBridge Team",
+  "agenticLayers": {
+    "reasoning": {
+      "modelType": "gpt-4o",
+      "reasoningPattern": "ReAct",
+      "contextWindow": 128000,
+      "memorySystem": "hybrid",
+      "decisionFramework": "Multi-Criteria Decision Analysis"
+    },
+    "orchestration": {
+      "workflowEngine": "n8n",
+      "coordinationPattern": "centralized",
+      "failoverStrategy": "retry",
+      "loadBalancing": "intelligent"
+    },
+    "protocol": {
+      "communicationProtocol": "MCP",
+      "messageFormat": "JSON",
+      "authenticationMethod": "OAuth2",
+      "encryptionStandard": "AES-256"
+    },
+    "governance": {
+      "policyEngine": "OPA",
+      "complianceStandards": [
+        "SOC2",
+        "GDPR"
+      ],
+      "auditTrail": true,
+      "riskAssessment": "medium",
+      "dataClassification": "internal"
+    },
+    "observability": {
+      "metricsCollection": "Prometheus",
+      "loggingFramework": "ELK",
+      "tracingSystem": "Jaeger",
+      "alertingRules": [],
+      "dashboardConfig": {
+        "layout": "grid",
+        "widgets": [
+          "metrics",
+          "logs",
+          "traces"
+        ],
+        "refreshInterval": 30
+      }
+    },
+    "intelligence": {
+      "learningCapability": "online",
+      "knowledgeBase": "vector-db",
+      "adaptationMechanism": "ml-based",
+      "performanceOptimization": "ai-driven"
+    }
+  },
+  "businessFunction": "data-preparation-node",
+  "autonomyLevel": "semi-autonomous",
+  "cognitiveCapabilities": [
+    {
+      "name": "Pattern Recognition",
+      "description": "Identifies patterns in business processes",
+      "confidenceLevel": 0.85,
+      "lastUpdated": "2026-02-17T18:07:07.062Z"
+    }
+  ],
+  "roiMetrics": {
+    "costSavings": 35423,
+    "timeReduction": 79,
+    "accuracyImprovement": 34,
+    "throughputIncrease": 64,
+    "errorReduction": 63
+  },
+  "complianceFramework": {
+    "standards": [
+      "SOC2",
+      "GDPR",
+      "ISO27001"
+    ],
+    "certifications": [
+      "SOC2 Type II"
+    ],
+    "auditFrequency": "monthly",
+    "lastAudit": "2026-02-13T00:04:19.347Z"
+  },
+  "scalingPolicy": {
+    "minInstances": 1,
+    "maxInstances": 10,
+    "scaleUpThreshold": 80,
+    "scaleDownThreshold": 20,
+    "cooldownPeriod": 300
+  }
+}
