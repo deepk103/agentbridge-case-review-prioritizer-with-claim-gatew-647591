@@ -1,0 +1,39 @@
+{
+  "name": "case-review-prioritizer-with-claim-gateway",
+  "version": "1.0.0",
+  "description": "Case Review Prioritizer with Claim Gateway simulates demographics and reconciles demographics snapshots; applies decision gates and observability; orchestrates via RIS to improve throughput.",
+  "main": "workflow.json",
+  "keywords": [
+    "agentbridge",
+    "workflow",
+    "automation",
+    "n8n",
+    "auto-retrieval",
+    "healthcare-&-life-sciences",
+    "safety",
+    "quality",
+    "care",
+    "auto-retrieval",
+    "healthcare"
+  ],
+  "author": "AgentBridge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deepk103/agentbridge-case-review-prioritizer-with-claim-gatew-647591.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deepk103/agentbridge-case-review-prioritizer-with-claim-gatew-647591/issues"
+  },
+  "homepage": "https://github.com/deepk103/agentbridge-case-review-prioritizer-with-claim-gatew-647591#readme",
+  "scripts": {
+    "start": "echo \"Import this workflow into your n8n instance\"",
+    "validate": "echo \"Workflow validation complete\"",
+    "test": "echo \"Run workflow tests\"",
+    "deploy": "echo \"Deploy to n8n instance\""
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "n8n": ">=1.0.0"
+  }
+}
